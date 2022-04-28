@@ -1,4 +1,4 @@
-from java:11
+FROM java:11
 
 EXPOSE 8080
 
