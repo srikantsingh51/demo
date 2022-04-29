@@ -1,7 +1,7 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: service
 metadata:
-  name: docker-k8s-demo-deployment
+  name: docker-k8s-demo-service
   labels:
     app: docker-k8s-demo
 spec:
