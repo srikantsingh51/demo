@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app:docker-k8s-demo
+        app: docker-k8s-demo
     spec:
       containers:
         - name: docker-k8s-demo
