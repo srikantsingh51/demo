@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    const api_url =
+      "http://localhost:8080/getEmployee";
+
+        async function getapi(url) {
+
+    // Storing response
+    const response = await fetch(url);
+
+    // Storing data in form of JSON
+    var data = await response.json();
+    console.log(data);
+
+    show(data);
+}
+// Calling that async function
+        getapi(api_url);
+
+
+
+    // Function to define innerHTML for HTML table
+            function show(data) {
+                let tab =
+                    `<tr>
+                      <th>Name</th>
+
+                     </tr>`;
+
+                // Loop to access all rows
+                for (let r of data) {
+                    tab += `<tr>
+                <td>${r} </td>
+
+            </tr>`;
+                }
+                // Setting innerHTML as tab variable
+                document.getElementById("tab1").innerHTML = tab;
+            }
+
+
+    </script>
+</head>
+<body >
+<div style="position: relative;top: 400px; left: 400px;width: 400px; border: 3px solid #73AD21;">
+<form id = "form1" method="post" action="/submit" ENCTYPE="text/plain" >
+
+    Employee Name: <input type="input" name="employee" /></br>
+
+</form>
+    <button type="submit" form="form1" value="Submit">Submit</button>
+</div>
+<div style="position: relative;top: 450px; left: 400px;width: 400px; border: 3px solid #73AD21;">
+    <form id = "form2" method="post" action="/bulk-upload" ENCTYPE="multipart/form-data" >
+
+        Upload file: <input type="file" name="file" /></br>
+
+    </form>
+    <button type="submit" form="form2" value="Submit">Submit</button>
+</div>
+<div>
+    <table id="tab1">
+
+    </table>
+</div>
+
+</body>
+</html>
